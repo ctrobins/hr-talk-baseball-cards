@@ -84,7 +84,7 @@ const teams = [
   "Washington Nationals"
 ];
 
-const locations = [
+const cities = [
   "Phoenix",
   "Atlanta",
   "Baltimore",
@@ -203,7 +203,7 @@ const states = [
   "WY"
 ];
 
-const actions = ["click", "impression"];
+const actionTypes = ["click", "impression"];
 
 const standings = [
   { team: "Astros", wins: 107, losses: 55 },
@@ -248,4 +248,10 @@ const processString = string => {
       data.losses = Number(cols[2]);
       return data;
     });
-  };
+};
+
+module.exports = { names, teams, locations, teamNames, states, actionTypes, standings };
+
+//module.exports.options = options;
+
+

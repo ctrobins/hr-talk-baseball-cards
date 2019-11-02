@@ -1,0 +1,15 @@
+{
+  "name": "hr-talk-baseball-cards",
+  "version": "1.0.0",
+  "description": "Seeds random data for baseball card db",
+  "main": "seed.js",
+  "scripts": {
+    "start": "node seedActions.js"
+  },
+  "author": "Carter Robinson",
+  "license": "",
+  "devDependencies": {},
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}
