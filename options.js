@@ -1,4 +1,4 @@
-const names = [
+const playerNames = [
   "Josef Rines",
   "Ashley Sabado",
   "Howard Stevenson",
@@ -51,39 +51,6 @@ const names = [
   "Gerardo Gosse"
 ];
 
-const fullTeams = [
-  "Arizona Diamondbacks",
-  "Atlanta Braves",
-  "Baltimore Orioles",
-  "Boston Red Sox",
-  "Chicago White Sox",
-  "Chicago Cubs",
-  "Cincinnati Reds",
-  "Cleveland Indians",
-  "Colorado Rockies",
-  "Detroit Tigers",
-  "Houston Astros",
-  "Kansas City Royals",
-  "Los Angeles Angels",
-  "Los Angeles Dodgers",
-  "Miami Marlins",
-  "Milwaukee Brewers",
-  "Minnesota Twins",
-  "New York Yankees",
-  "New York Mets",
-  "Oakland Athletics",
-  "Philadelphia Phillies",
-  "Pittsburgh Pirates",
-  "San Diego Padres",
-  "San Francisco Giants",
-  "Seattle Mariners",
-  "St. Louis Cardinals",
-  "Tampa Bay Rays",
-  "Texas Rangers",
-  "Toronto Blue Jays",
-  "Washington Nationals"
-];
-
 const teams = [
   { location: "Phoenix", team: "Diamondbacks" },
   { location: "Atlanta", team: "Braves" },
@@ -115,39 +82,6 @@ const teams = [
   { location: "Dallas", team: "Rangers" },
   { location: "Toronto", team: "Blue Jays" },
   { location: "Washington", team: "Nationals" }
-];
-
-const cities = [
-  "Phoenix",
-  "Atlanta",
-  "Baltimore",
-  "Boston",
-  "Chicago",
-  "Chicago",
-  "Cincinnati",
-  "Cleveland",
-  "Denver",
-  "Detroit",
-  "Houston",
-  "Kansas City",
-  "Los Angeles",
-  "Los Angeles",
-  "Miami",
-  "Milwaukee",
-  "Minnesota",
-  "New York City",
-  "New York City",
-  "Oakland",
-  "Philadelphia",
-  "Pittsburgh",
-  "San Diego",
-  "San Francisco",
-  "Seattle",
-  "St. Louis",
-  "Tampa Bay",
-  "Dallas",
-  "Toronto",
-  "Washington"
 ];
 
 const teamNames = [
@@ -236,8 +170,6 @@ const states = [
   "WY"
 ];
 
-const actionTypes = ["click", "impression"];
-
 const standings = [
   { team: "Astros", wins: 107, losses: 55 },
   { team: "Dodgers", wins: 106, losses: 56 },
@@ -271,24 +203,10 @@ const standings = [
   { team: "Tigers", wins: 47, losses: 114 }
 ];
 
-const processString = string => {
-  const teams = string.split("\n");
-  return teams.map(team => {
-    const data = {};
-    const cols = team.split("\t");
-    data.team = cols[0];
-    data.wins = Number(cols[1]);
-    data.losses = Number(cols[2]);
-    return data;
-  });
-};
-
 module.exports = {
-  names,
+  playerNames,
   teams,
-  cities,
   teamNames,
   states,
-  actionTypes,
   standings
 };

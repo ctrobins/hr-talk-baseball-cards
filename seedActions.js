@@ -1,10 +1,9 @@
 const {
-  names,
+  playerNames,
   teams,
   cities,
   teamNames,
   states,
-  actionTypes,
   standings
 } = require("./options");
 const { connectDatabase } = require("./db");
@@ -12,6 +11,7 @@ const { connectDatabase } = require("./db");
 const db = connectDatabase();
 
 const USER_ACTIONS_LIMIT = 100;
+const EXPECTED_CLICK_THROUGH_RATE = 0.25;
 
 const grabRandomElement = arr => {
   const randomIndex = Math.floor(Math.random() * arr.length);
@@ -22,15 +22,19 @@ const createRandomNumber = (low, high) => {
   return low + Math.floor(Math.random() * (high - low));
 };
 
+const createRandomAction = () => Math.random() < EXPECTED_CLICK_THROUGH_RATE
+  ? 'click'
+  : 'impression';
+
 const actions = [];
 
 while (actions.length < USER_ACTIONS_LIMIT) {
   actions.push({
     id: actions.length,
     time: Date.now(),
-    type: grabRandomElement(actionTypes),
+    type: createRandomAction(),
     cardId: createRandomNumber(1, 9999),
-    player: grabRandomElement(names),
+    player: grabRandomElement(playerNames),
     team: grabRandomElement(teamNames),
     state: grabRandomElement(states),
     year: createRandomNumber(1950, 2019),
@@ -39,8 +43,22 @@ while (actions.length < USER_ACTIONS_LIMIT) {
 }
 
 console.log(actions);
+let inserted = 0;
+
+actions.forEach(action => {
+  const { 
+    id, time, type, cardId, player, team, 
+    state, year, edition 
+  } = action;
+  db.query(`INSERT into user_activity
+            (id, time, type, cardId, player, team, state, year, edition)
+            values(${id}, ${time}, ${type}, ${cardId}, ${player}, 
+              ${team}, ${state}, ${year}, ${edition})`, (err) => {
+                err ? console.log('error', err) 
+                    : inserted++ && console.log(inserted);
+              });
+});
 
 //
-//db.query(`INSERT into cards`);
 
 //
