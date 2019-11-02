@@ -1,7 +1,6 @@
 const {
   playerNames,
   teams,
-  cities,
   teamNames,
   states,
   standings
@@ -11,7 +10,7 @@ const { connectDatabase } = require("./db");
 const db = connectDatabase();
 
 const USER_ACTIONS_LIMIT = 100;
-const EXPECTED_CLICK_THROUGH_RATE = 0.25;
+const EXPECTED_CLICK_PERCENTAGE = 0.25;
 
 const grabRandomElement = arr => {
   const randomIndex = Math.floor(Math.random() * arr.length);
@@ -22,7 +21,7 @@ const createRandomNumber = (low, high) => {
   return low + Math.floor(Math.random() * (high - low));
 };
 
-const createRandomAction = () => Math.random() < EXPECTED_CLICK_THROUGH_RATE
+const createRandomAction = () => Math.random() < EXPECTED_CLICK_PERCENTAGE
   ? 'click'
   : 'impression';
 
@@ -58,7 +57,3 @@ actions.forEach(action => {
                     : inserted++ && console.log(inserted);
               });
 });
-
-//
-
-//
