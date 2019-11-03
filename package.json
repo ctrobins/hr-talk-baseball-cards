@@ -2,9 +2,9 @@
   "name": "hr-talk-baseball-cards",
   "version": "1.0.0",
   "description": "Seeds random data for baseball card db",
-  "main": "seed.js",
+  "main": "seedStandings.js",
   "scripts": {
-    "start": "node seedActions.js"
+    "seed": "node seedStandings.js; node seedTeamsLocations.js; node seedActions.js"
   },
   "author": "Carter Robinson",
   "license": "",
