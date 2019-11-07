@@ -2,7 +2,7 @@
 
 Repo for seeding a test database of baseball card data.
 
-## Setup
+## Requirements
 
 This project requires Node and MySQL. If you do not have these on your computer, they can be installed through Homebrew (https://brew.sh/) with the commands `brew install node` and `brew install mysql`.
 
